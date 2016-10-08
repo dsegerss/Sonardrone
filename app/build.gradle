@@ -1,0 +1,43 @@
+apply plugin: 'com.android.application'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "24.0.0"
+    useLibrary 'org.apache.http.legacy'
+
+    defaultConfig {
+        applicationId "org.sonardrone"
+        minSdkVersion 22
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.google.android.gms:play-services-gcm:9.2.1'
+    compile group: 'org.ejml', name: 'all', version: '0.29'
+    compile 'com.github.ytai.ioio:IOIOLibAndroid:5.05'
+    compile 'com.github.ytai.ioio:IOIOLibAndroidBluetooth:5.05'
+    compile 'com.github.ytai.ioio:IOIOLibAndroidAccessory:5.05'
+    compile 'com.github.ytai.ioio:IOIOLibAndroidDevice:5.05'
+}
+
+repositories {
+    mavenCentral()
+}
